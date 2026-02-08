@@ -304,7 +304,7 @@ Wasted: 0%
 **Measured benefits:**
 - ~50-60% token savings per session (isolated project context)
 - Longer usable context window per project (less irrelevant accumulation)
-- Three-stage workflow amplifies savings (Stage 2 is 0% Claude tokens)
+- Three-stage workflow for PowerShell projects amplifies savings (Stage 2 is 0% Claude tokens)
 
 **Combined effect:**
 ```
