@@ -297,13 +297,13 @@ Not planned. **Discovered.**
 
 ### What's Different From Implementation
 
-**Then (implementation day, midday):**
+**Then (implementation day, Saturday):**
 - System designed and built
 - GitHub repos created
 - Projects configured
 - Fully operational
 
-**Now (implementation day, evening):**
+**Now (following day, Sunday):**
 - Terminal efficiency added (CLI commands)
 - Professional workflow (local git)
 - Context documented (work schedule)
