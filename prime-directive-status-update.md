@@ -12,13 +12,13 @@ If you haven't read the other docs yet:
 - [Technical deep-dive](prime-directive-architecture-technical.md) - The complete framework
 - [Implementation report](prime-directive-implementation-report.md) - Building it in one session
 
-**This doc:** The enhancements that emerged after the initial build. Same Saturday, just... kept going.
+**This doc:** The enhancements that emerged after the initial build. Following morning, just... kept going.
 
 ---
 
 ## TL;DR
 
-After building the four-tier distributed memory system, we didn't stop. Same day, added:
+After building the four-tier distributed memory system, we didn't stop. Next day, added:
 - **Terminal-like CLI commands** (espanso text expander)
 - **Local filesystem workflow** (Claude Desktop integration)
 - **Work schedule documentation** (office/home context)
