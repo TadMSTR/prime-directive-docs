@@ -71,7 +71,7 @@ Your brain just does this sometimes.
 ### Starting Point (Saturday Morning)
 
 **What existed:**
-- Theory of four-tier architecture (from previous week)
+- Theory of four-tier architecture (expanded from 2 tier using GitHub)
 - Two active project chats (PowerShell, Docker)
 - Prime Directive chat with rich history
 - Understanding that Tier 0 needed to be built
