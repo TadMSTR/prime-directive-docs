@@ -729,7 +729,7 @@ From theory to practice in one Saturday.
 
 ---
 
-*Implementation: February 7, 2025*  
+*Implementation: February 7, 2026*  
 *Build time: ~4 hours*  
 *Origin: Week one + WandaVision*  
 *Status: Fully operational*
