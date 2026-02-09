@@ -55,6 +55,17 @@ The enhancements that emerged from using the system: CLI commands (espanso), loc
 - Current system status
 - ~12KB
 
+### [Why Not Memory Feature?](why-not-memory-feature.md)
+**Comparison with Claude's built-in memory.**
+
+The conversation that led to building the distributed system instead of using Claude's memory feature. Compares accuracy, control, transparency, and token efficiency. Documents why explicit context beats automatic extraction.
+
+- Problems with automatic memory
+- How distributed system solves each problem
+- Direct comparison table
+- Real-world examples
+- ~15KB
+
 ## The Four-Tier Architecture
 
 **Tier 0: GitHub Instructions (Meta-Memory)**
