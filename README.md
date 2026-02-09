@@ -153,6 +153,19 @@ My brain stored that scene, retrieved it when noticing AI conversation degradati
 
 The system is fully operational as a personal tool. Implementation Report documents the build process, validation, and metrics.
 
+**Required Claude Settings:**
+
+For this system to work, configure these settings in Claude:
+
+1. **Settings → Capabilities → Memory**
+2. **Enable:** "Search and reference chats" (allows past chat access)
+3. **Disable:** "Generate memory from chat history" (prevents automatic assumptions)
+
+**Why disable auto-memory:**
+- Prevents invisible assumptions and errors
+- You control context explicitly via Tier 0
+- See "Why Not Memory Feature?" document for full comparison
+
 **Components built:**
 - Private GitHub repository (Tier 0) with 17 documentation files
 - Custom instructions per project chat (Tier 2)

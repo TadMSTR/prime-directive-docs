@@ -439,6 +439,44 @@ Chat history: Only Docker discussions
 
 ---
 
+## Required Settings for This System
+
+**To use the distributed system approach:**
+
+1. Go to **Settings → Capabilities → Memory** in Claude
+2. **Enable:** "Search and reference chats"
+   - This allows Claude to search past conversations
+   - Enables access to conversation archives
+   - Required for referencing Tier 0 documentation
+3. **Disable:** "Generate memory from chat history"
+   - This prevents automatic memory extraction
+   - Stops invisible assumptions and errors
+   - Keeps you in control of context
+
+**Why these specific settings:**
+
+**Enable search/reference because:**
+- You want Claude to access archived conversations
+- You need past chat search capability
+- Tier 0 documentation references work better
+- Conversation history is useful context
+
+**Disable auto-memory because:**
+- Automatic extraction makes invisible assumptions (the whole problem)
+- You control context explicitly via Tier 0 markdown files
+- No black box guessing about what's "remembered"
+- Changes tracked via git, not hidden in memory system
+- Accuracy under your control, not AI inference
+
+**This configuration gives you:**
+- Access to past context (search/reference)
+- Without automatic extraction errors (no auto-memory)
+- Best of both worlds
+
+**The system works *with* Claude's capabilities, just not the problematic automatic memory feature.**
+
+---
+
 *Conversation that led to this: February 4, 2026*  
 *System implemented: February 7-9, 2026*  
 *This comparison: February 10, 2026*
