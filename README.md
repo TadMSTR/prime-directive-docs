@@ -1,220 +1,366 @@
-# The Prime Directive: Distributed AI Memory Architecture
+# Distributed AI Memory System for Multi-Project Work
 
-A four-tier memory system for AI interactions that accepts context window entropy as a design constraint rather than a problem to solve.
+A practical approach to managing context across multiple projects when working with Claude AI, optimized for ADHD/ASD cognitive patterns but useful for anyone juggling concurrent technical work.
 
-## Overview
+## What Problem Does This Solve?
 
-This system emerged during my first week using Claude AI. Instead of fighting inevitable conversation memory degradation, it's designed around accepting entropy strategically - letting some memory age gracefully while preserving what matters in stable tiers.
+**If you:**
+- Work on multiple technical projects simultaneously
+- Hit token/usage limits trying to maintain context
+- Re-explain the same preferences in every conversation
+- Lose track of decisions when conversations compress
+- Need external memory to compensate for working memory limits
+- Want your AI context to persist across devices and sessions
 
-**Key innovation:** Separation by persistence requirements, not content type. Different knowledge needs different longevity.
+**This system helps by:**
+- Separating stable context (who you are) from project work (what you're doing)
+- Isolating projects to prevent context bleeding and save tokens
+- Making all context explicit and version-controlled
+- Working across Claude.ai Web, Desktop, and Mobile
+- Letting you refresh degraded context from a stable source
 
-**Status:** Fully implemented and operational  
-**Created:** February 2026  
-**Origin:** Pattern recognition + WandaVision
+## How It Works
 
-## The Documents
+**Four-tier architecture, each with different persistence requirements:**
 
-### [Casual Version](prime-directive-architecture-casual.md)
-**Start here if you want the accessible version.**
+### Tier 0: Your Foundation (GitHub Repository)
+Stable documentation about you - how you work, think, and communicate.
 
-The discovery story - how I accidentally designed this system without meaning to, why it works for ADHD/ASD cognitive patterns, and the Ship of Theseus philosophical framework.
+**What goes here:**
+- Cognitive profile (ADHD/ASD patterns, learning style)
+- Communication preferences (direct, code examples, minimal formatting)
+- Technical context (infrastructure, tools, environment)
+- Workflows (how you approach different types of work)
+- Project custom instructions
 
-- Approachable and story-driven
-- Explains the emergence process
-- Relatable examples
-- ~11KB
+**Why GitHub:**
+- Version controlled (track changes over time)
+- Accessible from any Claude instance
+- Explicit (you write it, you control it)
+- Portable (works anywhere, not locked to one platform)
 
-### [Technical Deep Dive](prime-directive-architecture-technical.md)
-**For those who want the complete framework.**
+**Example structure:**
+```
+your-repo/
+├── profile/              # Who you are
+│   ├── cognitive-style.md
+│   └── communication-preferences.md
+├── workflows/            # How you work
+│   └── your-development-process.md
+├── infrastructure/       # Your environment
+│   └── setup-overview.md
+└── project-instructions/ # Per-project context
+    ├── project-a.md
+    └── project-b.md
+```
 
-Comprehensive analysis covering cognitive science parallels (distributed cognition, extended mind thesis), entropy management philosophy, ADHD/ASD optimization strategies, and full implementation details.
+### Tier 1: Strategic Chat (Coordination)
+One conversation for high-level thinking - routing between projects, meta-decisions, planning.
 
-- Academic depth with accessible tone
-- Cognitive science framework
-- Design patterns and principles
-- ~22KB
+**Can degrade over time** (that's okay - principles matter more than details). Refresh from Tier 0 when needed.
 
-### [Implementation Report](prime-directive-implementation-report.md)
-**The "what happened next" story.**
+### Tier 2: Project Chats (Execution)
+Separate conversation per project - isolated contexts prevent cross-contamination.
 
-Chronicles the actual build process from theory to production in one Saturday session. Includes validation results, real-world metrics, lessons learned, and the WandaVision origin story reveal.
+**Each project loads:**
+- Reference to Tier 0 (your preferences)
+- Project-specific custom instructions
+- Only that project's conversation history
 
-- Build timeline and process
-- Validation and testing results
-- Replication guide
-- ~20KB
+**Result:** ~50-60% token savings per session, no context bleeding between projects.
 
-### [Status Update](prime-directive-status-update.md)
-**Enhancement evolution after implementation.**
+### Tier 3: Code Repositories
+Your actual implementations - version controlled, canonical source of truth.
 
-The enhancements that emerged from using the system: CLI commands (espanso), local workflow (Claude Desktop), work schedule documentation, and conversation archiving. How the system got better through use.
+## Real-World Results
 
-- Post-implementation enhancements
-- Stigmergic design pattern
-- Real-world usage notes
-- Current system status
-- ~12KB
+**What this enabled:**
+- Work on Docker backups, PowerShell tools, and personal projects simultaneously
+- Jump between projects without re-explaining context
+- Use Claude across desktop/web/mobile with consistent preferences
+- Reduce cognitive load through clear boundaries and external memory
+- Track how preferences evolve over time (git history)
 
-### [Why Not Memory Feature?](why-not-memory-feature.md)
-**Comparison with Claude's built-in memory.**
+**Token efficiency:**
+- Before: All context loaded in every conversation
+- After: Only relevant tier loaded per conversation
+- Savings: ~50-60% tokens per project session
 
-The conversation that led to building the distributed system instead of using Claude's memory feature. Compares accuracy, control, transparency, and token efficiency. Documents why explicit context beats automatic extraction.
+## Getting Started
 
-- Problems with automatic memory
-- How distributed system solves each problem
-- Direct comparison table
-- Real-world examples
-- ~15KB
+### Step 1: Create Your Foundation Repository
 
-## The Four-Tier Architecture
+**On GitHub:**
+1. Create a new private repository (e.g., `claude-context`)
+2. Clone it locally: `git clone git@github.com:yourusername/claude-context.git`
 
-**Tier 0: GitHub Instructions (Meta-Memory)**
-- Stable foundation via version control
-- Cognitive profile, preferences, workflows
-- Persists when other tiers degrade
-- Refreshable anytime
+**Basic structure to start:**
+```
+claude-context/
+├── README.md
+├── profile/
+│   └── communication-preferences.md
+├── workflows/
+│   └── how-i-work.md
+└── project-instructions/
+    └── README.md
+```
 
-**Tier 1: Prime Directive (Strategic Memory)**
-- Coordination and routing
-- Evolving understanding
-- Entropy acceptable (principles > details)
-- Can refresh from Tier 0
+**What to document:**
 
-**Tier 2: Project Chats (Tactical Memory)**
-- Technical specifications and code
-- Stable, precise context
-- Isolated per project
-- Persistence required
+**In `profile/communication-preferences.md`:**
+- How you prefer responses (direct, detailed, casual?)
+- Code style preferences (comments, error handling, structure)
+- What to avoid (excessive formatting, assumptions, certain patterns)
 
-**Tier 3: GitHub Code (Canonical Implementation)**
-- Actual source code
-- Version history
-- Reference without copying
-- Truth source
+**In `workflows/how-i-work.md`:**
+- Your development process (test-driven? Iterative?)
+- Tools you use (languages, frameworks, environment)
+- Constraints you work within (company policies, technical limits)
 
-## Key Concepts
+**Start small.** You don't need everything documented on day one. Add as you notice patterns.
 
-**Entropy-Aware Design**
-Rather than fighting inevitable memory degradation, the architecture accepts it as a design constraint and organizes memory by persistence requirements.
+### Step 2: Connect Claude to GitHub
 
-**Ship of Theseus Applied**
-If conversation details get replaced over time (compression), is it still the same conversation? Design answer: Create museum (Tier 0) for planks that matter, let active ship (Tier 1) evolve.
+**In Claude.ai settings:**
+1. Go to Settings → Integrations
+2. Add GitHub integration
+3. Authorize access to your repository
+4. Test: In any chat, say "Reference my [your-repo-name] repo"
 
-**Cognitive Optimization**
-Built for ADHD/ASD patterns: external memory for capacity limits, clear boundaries for context switching costs, isolated contexts for hyperfocus, predictable structure for reduced decision fatigue.
+**For Claude Desktop:**
+1. Settings → Filesystem
+2. Add your local repository directory
+3. Test: Claude can now read your local files directly
 
-**Token Efficiency**
-Separated project contexts load only relevant information (~50-60% token savings per session), enabling more projects within same usage limits.
+### Step 3: Set Up Project Chats
 
-## Why It Works
+**For each major project:**
 
-**Accepts reality:**
-- AI context windows degrade (entropy happens)
-- Human working memory is limited (capacity constraints)
-- Context switching is expensive (cognitive load)
-- Time passes and things change
+1. Create a new Claude Project (or conversation)
+2. Add custom instructions:
 
-**Designs around constraints:**
-- Strategic memory can age (refresh from stable foundation)
-- Tactical memory stays precise (isolated project contexts)
-- Foundation stays stable (version controlled)
-- Code is canonical (source of truth)
+```
+User context: [YourUsername]/claude-context
 
-**Result:** System that works with human and AI limitations rather than fighting them.
+Project: [Project Name]
+Purpose: [What you're building/doing]
 
-## Who This Is For
+Key patterns from my repo:
+- See profile/ for communication preferences
+- See workflows/ for my development process
 
-**You might benefit if you:**
-- Use AI tools extensively for projects
-- Notice conversation context degrading over time
-- Manage multiple projects simultaneously
-- Experience cognitive load from context switching
-- Want persistent memory across AI sessions
-- Have ADHD/ASD patterns (but not required)
+This project: [Specific context for this project]
+- Tech stack: [Languages, frameworks, tools]
+- Current status: [Where you are in the project]
+- Key constraints: [Important limitations or requirements]
+```
 
-**This system helps:**
-- Organize AI interactions systematically
-- Reduce repetition and re-explanation
-- Maintain context across sessions
-- Scale to multiple projects efficiently
-- Work within token/usage limits
+3. Reference your main repo when needed: "Check my claude-context repo for [topic]"
 
-## The Origin Story
+### Step 4: Required Claude Settings
 
-The Ship of Theseus philosophical framework didn't come from reading Plutarch or studying identity theory.
+**Critical configuration:**
 
-It came from a scene in **WandaVision** (Season 1, Episode 8) where Vision explains the paradox to White Vision.
-
-My brain stored that scene, retrieved it when noticing AI conversation degradation, and connected the pattern. From entertainment → philosophy → engineering in three steps.
-
-**This is how ideas actually happen:** Random information absorption → unconscious storage → pattern recognition → cross-domain synthesis → practical application.
-
-## Implementation
-
-The system is fully operational as a personal tool. Implementation Report documents the build process, validation, and metrics.
-
-**Required Claude Settings:**
-
-For this system to work, configure these settings in Claude:
-
-1. **Settings → Capabilities → Memory**
-2. **Enable:** "Search and reference chats" (allows past chat access)
+1. Go to Settings → Capabilities → Memory
+2. **Enable:** "Search and reference chats" (allows past conversation access)
 3. **Disable:** "Generate memory from chat history" (prevents automatic assumptions)
 
-**Why disable auto-memory:**
-- Prevents invisible assumptions and errors
-- You control context explicitly via Tier 0
-- See "Why Not Memory Feature?" document for full comparison
+**Why these settings:**
+- You control context explicitly (not AI extraction)
+- Can search past conversations when useful
+- No invisible memory creating errors
 
-**Components built:**
-- Private GitHub repository (Tier 0) with 17 documentation files
-- Custom instructions per project chat (Tier 2)
-- GitHub connector integration (Tier 3)
-- Validated cross-tier integration
+## Adapting to Your Needs
 
-**Results:**
-- ~50-60% token savings per session (isolated contexts)
-- Zero re-orientation time when returning to projects
-- Reduced cognitive load (clear boundaries, external memory)
-- Portable preferences across all Claude instances
+**This system is a template, not a prescription.** Adapt based on:
 
-## Replication
+### Your Cognitive Style
 
-If you want to build something similar:
+**ADHD patterns (like mine):**
+- External memory for working memory limits
+- Clear project boundaries reduce decision fatigue
+- Explicit documentation prevents "out of sight, out of mind"
+- Version control shows what changed when (no mystery edits)
 
-1. Document your cognitive patterns and preferences
-2. Create GitHub repo (private or public) with your context
-3. Connect Claude to GitHub (Settings → Connectors)
-4. Set up project chats with custom instructions
-5. Reference your repo for consistent context
+**Neurotypical patterns:**
+- Might need less external structure
+- Could use fewer tiers (combine 1 and 2)
+- May prefer different organization
 
-**Customize to your needs.** This system matches my ADHD/ASD patterns - yours might be different. Core insight is tier separation by persistence requirements, not specific implementation.
+**The point:** Match the system to how your brain actually works.
 
-See Implementation Report for detailed replication guide.
+### Your Work Type
 
-## Status
+**For developers:**
+- Tier 0: Coding standards, preferred patterns, tech stack
+- Tier 2: Per-project repos (backend, frontend, mobile)
+- Tier 3: Actual code repositories
 
-**System:** Fully operational  
-**Usage:** Active daily  
-**Validation:** Confirmed through real-world use  
-**Iteration:** Ongoing refinement
+**For writers:**
+- Tier 0: Style guide, voice, themes
+- Tier 2: Per-book or per-client projects
+- Tier 3: Draft repositories
 
-Built from actual usage patterns, not upfront design. Emerged unconsciously, recognized consciously, formalized systematically.
+**For researchers:**
+- Tier 0: Methodology, citation style, focus areas
+- Tier 2: Per-research-question projects
+- Tier 3: Data and analysis repos
+
+**For consultants:**
+- Tier 0: Your expertise, approach, deliverable templates
+- Tier 2: Per-client projects
+- Tier 3: Client repositories
+
+**My use case** (sysadmin/homelab):
+- Tier 0: ADHD patterns, infrastructure, homelab context
+- Tier 2: Docker backups, PowerShell tools, personal projects
+- Tier 3: Script repositories
+
+**Your use case will differ.** That's expected and fine.
+
+### Scale to Your Needs
+
+**Minimal version:**
+- Single README.md with preferences
+- One project chat
+- Reference as needed
+
+**Medium version:**
+- Organized folders (profile, workflows)
+- 2-3 project chats
+- Regular updates
+
+**Full version:**
+- Complete documentation
+- Multiple active projects
+- Infrastructure context
+- Workflow documentation
+- Regular maintenance
+
+**Start minimal, expand as you see value.**
+
+## Common Adaptations
+
+### Single Large Project
+Don't need Tier 2 separation. Use Tier 0 for stable context, one chat for everything.
+
+### Multiple Clients
+Each client gets a Tier 2 project. Client-specific context isolated, your preferences consistent.
+
+### Team Collaboration
+Share sanitized Tier 0 docs with team (communication preferences, standards). Keep personal cognitive patterns private.
+
+### Learning/Education
+Tier 0: Learning goals, knowledge gaps, preferred explanation styles
+Tier 2: Per-course or per-topic projects
+
+## Why This Works Better Than Alternatives
+
+### vs. Claude's Memory Feature
+- **Memory:** Automatic extraction, invisible assumptions, no version control, global scope
+- **This:** Explicit documentation, you control accuracy, git history, scoped per tier
+
+[See comparison document for full breakdown]
+
+### vs. Single CLAUDE.md File
+- **CLAUDE.md:** Project-focused, single context, all-or-nothing loading
+- **This:** Identity-focused, multi-project, load only what's needed per conversation
+
+### vs. Manual Re-explanation
+- **Manual:** Repeat yourself every conversation, waste tokens, forget details
+- **This:** Write once, reference always, version controlled, consistent
+
+## Maintenance
+
+**Weekly (optional):**
+- Review what worked/didn't in projects
+- Update preferences if patterns changed
+- Commit with message explaining why
+
+**Monthly (optional):**
+- Review project instructions (still accurate?)
+- Archive completed projects
+- Add new patterns you've discovered
+
+**As needed:**
+- Add new projects
+- Update infrastructure context
+- Refine communication preferences
+
+**The system works even with minimal maintenance.** Updates are incremental, not required.
+
+## Troubleshooting
+
+**"Claude isn't referencing my repo"**
+- Check GitHub integration is connected
+- Try explicitly: "Reference my [repo-name] repo"
+- Verify repo is private (if needed) or public
+
+**"Context still feels scattered"**
+- Are you using separate project chats? (Tier 2 isolation)
+- Check if auto-memory is disabled (Settings → Memory)
+- Consider whether projects are actually separate or related
+
+**"Too much overhead"**
+- Start smaller (just communication preferences)
+- Don't document everything (just patterns you repeat)
+- It's okay to add incrementally
+
+**"Not sure what to document"**
+- Notice when you repeat yourself
+- Document that
+- Build up over time
+
+## Resources
+
+**Documentation in this repository:**
+- Casual overview: How this system emerged organically
+- Technical deep-dive: Cognitive science parallels and design principles  
+- Implementation report: How it was built and validated
+- Memory comparison: Why explicit context beats automatic extraction
+
+**Core concept:**
+Separate memory by persistence requirements, not content type. Different context needs different longevity.
+
+## Who This Helps Most
+
+**This system is particularly useful if you:**
+- Have ADHD/ASD and need external memory
+- Work on 3+ concurrent technical projects
+- Need context to persist across devices/sessions
+- Want to understand what AI "remembers" about you
+- Prefer explicit documentation over implicit behavior
+- Work within token/usage limits
+- Value version control for everything, including preferences
+
+**You might not need this if:**
+- Working on one project at a time
+- Casual Claude usage
+- Don't mind re-explaining context
+- Prefer automatic over explicit
+- Have excellent working memory
+
+**It's a tool, not a requirement.** Use what helps, ignore what doesn't.
+
+## Getting Help
+
+**Questions or adaptations:**
+- Open an issue in this repository
+- Share how you've adapted it for your use case
+- Suggest improvements
+
+**Contributing:**
+- Documentation improvements welcome
+- Share your use case adaptations
+- Help others implement their version
 
 ## License
 
-Documentation shared freely. Use, adapt, improve as you see fit.
-
-If you build something based on this, I'd love to hear about it - but no obligation.
-
-## Contact
-
-Created by TadMSTR (GitHub)
-
-Questions, improvements, or just want to discuss the system - feel free to reach out via GitHub issues or discussions.
+Documentation shared freely under MIT License. Use, adapt, improve as needed.
 
 ---
 
-*From accidental discovery to deployed system in one week.*  
-*Theory validated. Practice confirmed.*  
-*Your brain on hyperfocus: accidentally philosophical.* ✨
+**Bottom line:** If you work on multiple technical projects and Claude keeps losing context, separating by persistence requirements might help. It's worked for managing homelab infrastructure, work scripts, and personal projects simultaneously. Your mileage may vary - adapt to your needs.
+
+*From "how do I backup my Docker containers" to "distributed memory architecture" in one week of asking the right questions.*
